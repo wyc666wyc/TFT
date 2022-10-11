@@ -1,17 +1,21 @@
 import Draggable from "react-draggable"
+import { Button } from 'antd'
 export default function designView() {
   return (
-    <div>
+    <div className="wrapper" style={{border: '1px solid #eee', width: '500px', height: '600px'}}>
       <Draggable
-        axis={isHorizontal ? "x" : "y"}
+        axis="both"
         handle=".handle"
-        position={position}
-        onStart={}
-        onDrag={}
-        onStop={}
+        bounds="parent"
+        defaultPosition={{ x: 0, y: 0 }}
+        grid={[1, 1]}
+        scale={1}
       >
-        <div className="handle">111</div>
-        <div className="handle">222</div>
+        <div style={{display: 'inline-block'}}>
+          <Button>111</Button>
+          <div className="handle">Drag from here</div>
+          <div>This readme is really dragging on...</div>
+        </div>
       </Draggable>
     </div>
   )
